@@ -1,8 +1,9 @@
-version: "3"
+version: "3.4"
 services:
   node:
     build:
       context: .
+      target: development
     command: npm run develop
     ports:
       - "3000:3000"
