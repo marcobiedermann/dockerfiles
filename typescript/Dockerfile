@@ -3,9 +3,11 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm install --only=production
 
-FROM base as build
+FROM base as development
 RUN npm install --only=development
 COPY . .
+
+FROM development as build
 RUN npm run build
 
 FROM base as production
