@@ -1,8 +1,8 @@
-version: "3.4"
+version: '3.4'
 services:
   php:
     build: .
     ports:
-      - "80:80"
+      - '80:80'
     volumes:
       - .:/var/www/html

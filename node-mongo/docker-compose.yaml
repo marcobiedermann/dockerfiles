@@ -1,4 +1,4 @@
-version: "3.4"
+version: '3.4'
 services:
   node:
     build:
@@ -6,12 +6,12 @@ services:
       target: development
     command: npm run develop
     ports:
-      - "3000:3000"
+      - '3000:3000'
     volumes:
       - .:/usr/src/app
   mongo:
     image: mongo:4
     ports:
-      - "27017:27017"
+      - '27017:27017'
     volumes:
       - ./db:/data/db

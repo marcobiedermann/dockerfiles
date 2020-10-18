@@ -1,5 +1,5 @@
-const express = require("express");
-const { Client } = require("pg");
+const express = require('express');
+const { Client } = require('pg');
 
 const config = {
   port: process.env.PORT ? parseInt(process.env.PORT) : 3000,
@@ -7,16 +7,13 @@ const config = {
 
 const app = express();
 
-const client = new Client(
-  "postgres://postgres:example@postgres:5432/postgres"
-);
+const client = new Client('postgres://postgres:example@postgres:5432/postgres');
 
-client.connect()
+client
+  .connect()
   .then(() => console.log('connected'))
-  .catch(error => console.error('connection error', error.stack))
+  .catch((error) => console.error('connection error', error.stack));
 
-app.get("/", (_request, response) => response.send("Hello, world!"));
+app.get('/', (_request, response) => response.send('Hello, world!'));
 
-app.listen(config.port, () =>
-  console.log(`App is running at http://localhost:${config.port}.`)
-);
+app.listen(config.port, () => console.log(`App is running at http://localhost:${config.port}.`));
