@@ -5,15 +5,17 @@ services:
       context: .
       target: development
     command: npm run develop
+    depends_on:
+      - postgres
     ports:
       - 3000:3000
     volumes:
       - .:/usr/src/app
   postgres:
-    image: postgres:13
+    image: postgres:13-alpine
     environment:
       POSTGRES_PASSWORD: example
     ports:
       - 5432:5432
     volumes:
-      - ./data:/var/lib/postgresql/data
+      - ./postgresql/data:/var/lib/postgresql/data
